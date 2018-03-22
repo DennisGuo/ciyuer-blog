@@ -1,0 +1,102 @@
+@import '../../../common/color.less';
+
+.header{
+    height: 100px;
+    background-color: @header-bgcolor;
+
+    .brand{
+        width: 200px;
+        display: inline-block;
+        background-color: @brand-bgcolor;
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        padding:20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        h1{
+           margin-bottom: 10px;
+        }
+        p{
+            color: @gray-text;
+            font-size: 12px;            
+        }
+    }
+
+    .slogan{
+        position: absolute;
+        left: 300px;
+        top:40px;
+        right:250px;
+        color: @header-text;
+        .slogan-content{
+            line-height: 1em;
+            height: 2em;
+            overflow: hidden;
+            // white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .author{
+            font-size: 12px;
+            padding-top: 5px;
+            font-style: italic;            
+            &::before{
+                content: " ———— "
+            }            
+        }
+    }
+
+    .contact{
+        float: right;
+        padding:20px 40px 10px 0;
+        ul{
+            li{
+                float:right;
+                margin-left: 20px;
+                a{
+                    color: @header-text;
+                    font-size: 44px;
+                    &:hover{
+                        color:#fff;
+                    }
+                }
+            }
+        }
+        .email{
+            color: @header-text;
+            font-size: 14px;
+            text-decoration: none;        
+        }
+    }
+}
+@media(max-width:1080px){
+    .slogan{
+        display: none;
+    }
+}
+@media(max-width:640px){
+    .header{
+        
+        .brand{
+            left:50%;
+            margin-left:-120px;
+            text-align: center;
+        }
+        .contact{
+            display: block;
+            width: 100%;
+            position: absolute;
+            top:140px;
+            text-align: center;
+            float: none;
+            padding:10px;
+            ul {
+                li{
+                    float: none;
+                    display: inline;
+                    margin: 0 10px;
+                }
+            }
+        }
+        
+    }
+}
