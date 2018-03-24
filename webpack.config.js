@@ -43,6 +43,7 @@ module.exports = {
         })
     ],
     devServer: {
-        contentBase: "./dist"
+        contentBase: "./dist",
+        port:8002
     },
 };

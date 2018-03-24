@@ -1,0 +1,33 @@
+@import '../../../common/color.less';
+
+.sidebar{
+    .box-content{
+        margin:10px 0;
+        .skill{
+            border-left: 1px solid @gray-text;
+            padding: 0 20px;
+            margin-left: 10px;
+
+            .skill-catalog{
+                font-weight: bold;                
+                &::before{
+                    content: "";
+                    display: inline-block;
+                    margin-right: 10px;
+                    width: 14px;
+                    height:14px;
+                    background-color: #fff;
+                    border: 1px solid @gray-text;
+                    border-radius: 14px;
+                    margin-left: -28px;
+                }
+            }
+
+            .skill-catalog-list{
+                font-size: 12px;
+                color: @gray-text;
+                padding:5px;
+            }
+        }
+    }
+}

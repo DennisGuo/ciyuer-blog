@@ -2,7 +2,8 @@
 .box(){
     background-color: #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    padding:10px;
+    padding:20px;
+    margin-bottom: 20px;
 }
 .content{
     position: relative;
@@ -11,13 +12,30 @@
         .box();
         position: absolute;
         left: 40px;
-        right:400px;
+        right:300px;
     }
     .sidebar{
         .box();
         position: absolute;
         right:40px;
-        width: 300px;
+        width: 200px;
     }
 
+}
+@media(max-width:720px){
+    .content{
+        .center,.sidebar{
+            position: static;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        .sidebar{
+            width: auto;
+        }
+    }
+}
+@media(max-width:640px){
+    .content{
+        margin-top: 140px;
+    }
 }
