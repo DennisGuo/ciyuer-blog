@@ -25,7 +25,7 @@ module.exports = {
                 }]
             },
             {
-                test: /\.less$/,
+                test: /(\.less|\.css)$/,
                 use: [{
                     loader: "style-loader" // creates style nodes from JS strings
                 }, {
@@ -44,6 +44,7 @@ module.exports = {
     ],
     devServer: {
         contentBase: "./dist",
+        historyApiFallback: true,
         port:8002
     },
 };

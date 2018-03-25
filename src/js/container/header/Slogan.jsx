@@ -1,5 +1,7 @@
 import React,{Component} from "react";
 
+import './Slogan.less';
+
 class Slogan extends Component {
 
     constructor(props) {

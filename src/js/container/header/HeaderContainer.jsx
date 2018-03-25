@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 
+import Brand from './Brand';
 import Slogan from './Slogan';
 import './Header.less';
 
@@ -27,12 +28,8 @@ class HeaderContainer extends Component {
         const {brand,contact,slogans} = this.state;
         return (
             <div className="header">
-                <div className="brand animated slideInLeft">                
-                    <h1>{brand.title}</h1>
-                    <p className="subtitle">{brand.subtitle}</p>
-                </div>
-
-               <Slogan data={slogans}/>
+                <Brand data={brand}/>
+                <Slogan data={slogans}/>
 
                 <div className="contact animated slideInRight">
                     <ul>

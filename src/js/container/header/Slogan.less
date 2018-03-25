@@ -1,0 +1,23 @@
+@import '../../../common/color.less';
+.slogan{
+    position: absolute;
+    left: 300px;
+    top:40px;
+    right:250px;
+    color: @header-text;
+    .slogan-content{
+        line-height: 1em;
+        height: 2em;
+        overflow: hidden;
+        // white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .author{
+        font-size: 12px;
+        padding-top: 5px;
+        font-style: italic;            
+        &::before{
+            content: " ———— "
+        }            
+    }
+}

@@ -12,8 +12,8 @@ class ContentContainer extends Component {
     render() {
         return (
             <div className="content">
-                <Center/>
                 <Sidebar/>
+                <Center/>
             </div>
         );
     }

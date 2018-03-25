@@ -10,3 +10,31 @@ html,body{
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUAQMAAAC3R49OAAAABlBMVEUAAAAnNk6AHRRIAAAAAnRSTlMAsyT7Lw4AAAANSURBVAjXY2hgoCoAACfQAIGM5uSyAAAAAElFTkSuQmCC');
     background-size: 12px;
 }
+a{
+    text-decoration: none;
+}
+.btn{
+    border: none;
+    background-color: @header-bgcolor;
+    color:@header-text;
+    padding:5px 10px;
+    cursor: pointer;
+
+    &:hover{
+        color: #fff;
+        transform: scale(1.1);
+    }
+    &:focus{
+        outline: none;
+    }
+}
+
+.Flipcard-front,.Flipcard-back{
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+@media(max-width:640px){
+    .content,.new-container{
+        margin-top: 140px;
+    }
+}
