@@ -1,5 +1,50 @@
+@import '../../../common/color.less';
 .viewer{
-    padding:10px;
+    padding:20px;
     background-color: #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    .title{
+        line-height: 2em;
+    }
+    .toc{
+
+        padding: 10px 0;
+        float: right;
+        width: 20%;
+        min-width: 220px;
+        padding-left: 10px;
+        background: @toc-bgcolor;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        h2{
+            font-size: 0.8em;
+        }
+        &-content{
+            padding:10px 0;
+        }
+    }
+    &-content{
+        padding:10px 0;
+    }
+    .tags{
+        margin-bottom: 20px;
+    }
+}
+.viewer.has-toc{
+    .viewer-content{
+        margin-right:21%;
+    }
+}
+@media(max-width:640px){
+    .viewer{
+        .toc{
+            float: none;
+            width: 100%;
+        }
+    }
+    .viewer.has-toc{
+        .viewer-content{
+            margin-right:0;
+        }
+    }
 }

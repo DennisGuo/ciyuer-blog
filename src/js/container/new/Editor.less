@@ -33,12 +33,20 @@
         }
     }
     &-text{
-        textarea{
-            border: none;
-            width: 100%;
-            padding:10px;
-            .inner();
-            box-sizing : border-box;
+        .CodeMirror{
+            min-height: 600px;
+        }
+    }
+}
+
+@media(max-width:640px){
+    .editor-title{
+        input{
+            width:100%;           
+            margin-bottom: 10px;   
+        }
+        .editor-tag{
+            margin-left: 0;
         }
     }
 }

@@ -9,6 +9,8 @@ html,body{
     // background-color: @body-bgcolor;
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUAQMAAAC3R49OAAAABlBMVEUAAAAnNk6AHRRIAAAAAnRSTlMAsyT7Lw4AAAANSURBVAjXY2hgoCoAACfQAIGM5uSyAAAAAElFTkSuQmCC');
     background-size: 12px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 a{
     text-decoration: none;
@@ -33,8 +35,22 @@ a{
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
+.label{
+    padding:5px;
+    font-size: 0.8em;
+    background-color: @label-bgcolor;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color: @gray-text;
+    border-radius: 5px;
+    
+    &::before{
+        content:"# "
+    }
+}
+
 @media(max-width:640px){
-    .content,.new-container{
+    .content,.new-container,.article{
         margin-top: 140px;
     }
 }

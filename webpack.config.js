@@ -5,7 +5,8 @@ module.exports = {
     entry: ["./src/js/App.jsx"],
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "js/[name].js"
+        filename: "js/[name].js",
+        publicPath:'/'
     },
     resolve: {
         extensions: ['.js', '.jsx']

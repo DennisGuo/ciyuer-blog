@@ -36,7 +36,7 @@ class Sidebar extends Component {
 
         return (
             <div className="sidebar animated slideInRight">
-                <h2>Skills</h2>
+                <h2>My Skills</h2>
                 <div className="box-content">
                     {skills}
                 </div>
