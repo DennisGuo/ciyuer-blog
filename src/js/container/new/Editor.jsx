@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import CodeMirror from 'react-codemirror';
 import {toast} from 'react-toastify';
-import 'codemirror/mode/markdown/markdown';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 import './Editor.less';
+
+const CodeMirror = window.CodeMirrorEditor;
 
 class Editor extends Component {
 

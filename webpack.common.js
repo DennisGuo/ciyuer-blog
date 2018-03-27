@@ -1,13 +1,18 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: ["./src/js/App.jsx"],
+    entry: {
+        app: "./src/js/App.jsx"
+    },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "js/[name].js",
-        publicPath:'/'
+        filename: "js/[name].bundle.js",
+        // chunkFilename:'js/[name].[chunkhash].js',
+        publicPath: '/'
     },
+
     resolve: {
         extensions: ['.js', '.jsx']
     },
@@ -28,24 +33,20 @@ module.exports = {
             {
                 test: /(\.less|\.css)$/,
                 use: [{
-                    loader: "style-loader" // creates style nodes from JS strings
+                    loader: 'style-loader'
                 }, {
-                    loader: "css-loader" // translates CSS into CommonJS
+                    loader: 'css-loader'
                 }, {
-                    loader: "less-loader" // compiles Less to CSS
+                    loader: 'less-loader'
                 }]
             }
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: './index.html'
-        })
+        }),
     ],
-    devServer: {
-        contentBase: "./dist",
-        historyApiFallback: true,
-        port:8002
-    },
-};
+}

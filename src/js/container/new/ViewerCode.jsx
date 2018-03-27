@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 
-import hljs from 'highlight.js';
 import 'highlight.js/styles/github-gist.css'
+
+const hljs = window.hljs;
 
 class ViewerCode extends PureComponent {
     constructor(props) {
