@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {toast} from 'react-toastify';
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/monokai.css';
+// import 'codemirror/lib/codemirror.css';
+// import 'codemirror/theme/monokai.css';
 import './Editor.less';
 
-const CodeMirror = window.CodeMirrorEditor;
+import CodeMirror from './CodeMirrorEditor';
 
 class Editor extends Component {
 
@@ -90,7 +90,7 @@ class Editor extends Component {
 
                 </div>
                 <div className="editor-text">
-                    <CodeMirror value={this.state.content} onChange={e=>this.contentChange(e)} options={options} />
+                    <CodeMirror value={this.state.content} onChange={e=>this.contentChange(e)} mode={options.mode} theme={options.theme} />
                     {/* <textarea value={this.state.content} rows="30" className="editor-content" placeholder="Markdown" onChange={e => this.setValue('content',e.target.value)}></textarea> */}
                 </div>
             </div>

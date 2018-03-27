@@ -12,7 +12,11 @@ module.exports = {
         // chunkFilename:'js/[name].[chunkhash].js',
         publicPath: '/'
     },
-
+    externals:{
+        'react':'React',
+        'react-dom':'ReactDOM',
+        'codemirror':'CodeMirror'
+    },
     resolve: {
         extensions: ['.js', '.jsx']
     },
