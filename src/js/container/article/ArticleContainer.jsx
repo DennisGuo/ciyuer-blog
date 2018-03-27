@@ -12,7 +12,7 @@ class ArticleContainer extends Component {
             article:null
         };
     }
-    componentWillMount(){
+    componentDidMount(){
         Service.getArticle(this.props.match.params.id,(data)=>{
             if(data.status == 200 ){
                 var article = data.data;

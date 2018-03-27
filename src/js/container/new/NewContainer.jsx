@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { FlexyFlipCard } from 'flexy-flipcards';
 
 import Service from '../../service/Service';
 import Editor from './Editor';
@@ -21,15 +20,16 @@ class NewContainer extends Component {
             redirect:null  // 调整到文章详情页Link
         }
         this.handlePreview = this.handlePreview.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSave = this.handleSave.bind(this);
         this.toggleFlip = this.toggleFlip.bind(this);
     }
     //预览
     handlePreview(data){
         //console.log(data);
-        var st = this.state;
-        st.payload = data;
-        this.setState(Object.assign({},st));
+        // var st = this.state;
+        // st.payload = data;
+        // this.setState(Object.assign({},st));
         this.toggleFlip();
        
     }
@@ -48,15 +48,18 @@ class NewContainer extends Component {
           }
        });
     }
+    //监听变化
+    handleChange(data){
+        var st = this.state;
+        st.payload = data;
+        this.setState(Object.assign({},st));
+    }
 
     toggleFlip(){
         var st = this.state;
         this.setState(Object.assign({},st,{
             flipped:!st.flipped
         }));
-        if(this.trigger){
-            this.trigger.children[0].click();
-        }
     }
 
     render() {
@@ -65,29 +68,24 @@ class NewContainer extends Component {
             return (<Redirect to={this.state.redirect}/>);
         }
 
-        const viewerStyle = { display:this.state.flipped ? 'block':'none' };
-
+        const editorCls = "new-flip flip-editor animated " + (this.state.flipped ? 'slideOutUp':'slideInDown');
+        const viewerCls = "new-flip flip-viewer animated " + (this.state.flipped ? 'slideInUp':'slideOutDown');
         return (
             <div className="new-container">
-                <FlexyFlipCard 
-                    frontBackgroundColor="transparent" 
-                    backBackgroundColor="transparent">     
-                    <div className="flip">
+                    <div className={editorCls} style={{"display":(this.state.flipped ? "none":"block")}}>
                         <Editor
                             save = {this.handleSave}
+                            change = {this.handleChange}
                             preview = {this.handlePreview}
                         />
-                        <span ref={ele=>this.trigger = ele}>
-                            <span ref="flipper"></span>
-                        </span>
                     </div>
-                    <div className="flip flip-viewer" style={viewerStyle}>
+                    <div className={viewerCls} style={{"display":(this.state.flipped ? "block":"none")}}>
                         <div className="viewer-btns">
-                            <button className="btn" onClick={e=>this.toggleFlip()}> <span className="fa fa-times"></span> 返回</button>
+                            <button className="btn btn-back" onClick={e=>this.toggleFlip()}> <span className="fa fa-times"></span> 返回</button>
                         </div>
                         <Viewer data={this.state.payload}/>
                     </div>
-                </FlexyFlipCard>
+                    <div className="clearfix"></div>
             </div>
         );
     }

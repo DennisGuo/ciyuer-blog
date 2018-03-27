@@ -7,27 +7,31 @@
         line-height: 2em;
     }
     .toc{
-
-        padding: 10px 0;
+        padding: 10px;
         float: right;
         width: 20%;
         min-width: 220px;
-        padding-left: 10px;
         background: @toc-bgcolor;
         margin-bottom: 20px;
         box-sizing: border-box;
         h2{
             font-size: 0.8em;
+            .toc-collapse{
+                float: right; 
+                cursor: pointer;
+            }
         }
         &-content{
-            padding:10px 0;
+            padding:10px 0;            
         }
     }
     &-content{
-        padding:10px 0;
+        padding:10px 0;    
+        box-sizing: border-box;   
+        min-height: 605px;
     }
     .tags{
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 }
 .viewer.has-toc{

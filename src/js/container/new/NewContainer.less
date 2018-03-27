@@ -1,6 +1,7 @@
+@import '../../../common/function.less';
 .new-container{
     margin-top:60px;
-    .flip{
+    .new-flip{
         margin:10px 40px 20px;
     }
     .flip-viewer{
@@ -19,8 +20,67 @@
 }
 @media(max-width:640px){
     .new-container{
-        .flip{
+        .new-flip{
             margin:20px;
+        }
+    }
+}
+@media(max-width:1366px){
+    .flip-viewer{
+        display: none;
+    }
+}
+@media(min-width:1366px){
+    .new-container{
+        margin-left: 40px;
+        margin-right: 40px;
+        background-color: #fff;
+        .box();
+        .new-flip{
+            margin:0;
+            .viewer,.editor{
+                box-shadow: none;
+            }
+        }
+        .flip-editor,.flip-viewer{
+            width: 50%; 
+            box-sizing: border-box;
+        }
+        .flip-editor{
+            float: left;
+            .btn-preview{
+                display: none;
+            }
+            .editor{
+                padding:0;
+                padding-top: 10px;
+            }
+        }
+        .flip-viewer{
+            float:right;
+            display: block !important;
+            visibility: visible !important;
+            animation: none;
+            .btn-back{
+                display: none;
+            }
+            .viewer{
+                padding-right: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+                .toc{
+                    position: absolute;
+                    right: 0;
+                    top:0;
+                }
+            }
+            .viewer-content{
+                height: 605px;
+                overflow: auto;
+                width: 100%;
+                margin-right: 0;
+                padding: 0;
+            }
         }
     }
 }

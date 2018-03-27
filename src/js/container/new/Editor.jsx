@@ -21,6 +21,10 @@ class Editor extends Component {
         this.save = this.save.bind(this);
     }
 
+    componentDidMount(){
+        this.props.change && this.props.change(this.state);
+    }
+
     setValue(key,val){
         var st = this.state;
         st[key] = val;
@@ -30,17 +34,20 @@ class Editor extends Component {
             st['tag'] = arr;
         }
         this.setState(Object.assign({},st));
+
+        //变化
+        this.props.change && this.props.change(st);
     }
 
     preview(){ 
         if(this.check()){
-            this.props.preview(this.state);
+            this.props.preview && this.props.preview(this.state);
         }
     }
 
     save(){
         if(this.check()){
-            this.props.save(this.state);
+            this.props.save && this.props.save(this.state);
         }
     }
 
@@ -74,8 +81,8 @@ class Editor extends Component {
                 <div className="editor-title">
 
                     <div className="editor-btns">
-                        <button className="btn" onClick={e=>this.preview()}> <span className="fa fa-eye"></span> 预览</button>
-                        <button className="btn" onClick={e=>this.save()}> <span className="fa fa-save"></span> 保存</button>
+                        <button className="btn btn-preview" onClick={e=>this.preview()}> <span className="fa fa-eye"></span> 预览</button>
+                        <button className="btn btn-save" onClick={e=>this.save()}> <span className="fa fa-save"></span> 保存</button>
                     </div>
 
                     <input type="text" value={this.state.title} placeholder="请输入标题" onChange={e => this.setValue('title',e.target.value)}/>
