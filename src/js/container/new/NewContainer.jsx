@@ -35,7 +35,9 @@ class NewContainer extends Component {
     }
     //保存
     handleSave(data){
-       Service.saveArticle(data,(rs)=>{
+        toast.info('Sorry,好多人乱保存，所以暂时关闭保存功能');
+        return ;
+        Service.saveArticle(data,(rs)=>{
           if(rs.status == 201){
             toast.success('保存文章成功！');
             var headers = rs.headers;
@@ -46,7 +48,7 @@ class NewContainer extends Component {
                 redirect:'/article/'+id
             }));
           }
-       });
+        });
     }
     //监听变化
     handleChange(data){
